@@ -19,12 +19,11 @@ const colors = [
   },
 ];
 
-export default function ColorRenderer() {
+const ColorRenderer = () => {
   return (
-    <>
-      {colors.map((color) => (
+  colors.map((color) => (
         <Color name={color.name} hex={color.hex}/>
-      ))}
-    </>
+      ))
   );
 }
+export default ColorRenderer;
