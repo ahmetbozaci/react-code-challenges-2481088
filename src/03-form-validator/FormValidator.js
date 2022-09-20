@@ -5,7 +5,6 @@ export default function FormValidator() {
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
   const [message, setMessage] = useState('');
-console.log([...email].filter(i => i=== '@'))
   const findErrors = () => {
     const errors = [];
     if (!email || !password || !passwordConfirm)
