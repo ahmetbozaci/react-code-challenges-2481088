@@ -1,9 +1,22 @@
-export default function DogPics () {
-  // API: https://dog.ceo/dog-api/
+import { useState } from 'react';
+
+const DogPics = () => {
+  const [image, setImage] = useState('');
+
+  const fetchDogImage = async () => {
+    const URL = 'https://dog.ceo/api/breeds/image/random';
+    const response = await fetch(URL);
+    const json = await response.json();
+    const imageUrl = json.message;
+    setImage(imageUrl);
+  };
+
   return (
-    <div className='dog-pics'>
-      <img src='https://images.dog.ceo/breeds/spaniel-cocker/n02102318_4172.jpg' />
-      <button>🐶</button>
+    <div className="dog-pics">
+      <img src={image} alt="dog-picture" aria-hidden />
+      <button onClick={fetchDogImage}>🐶</button>
     </div>
-  )
-}
+  );
+};
+
+export default DogPics;
